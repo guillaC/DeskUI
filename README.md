@@ -14,7 +14,7 @@ A reusable Razor Class Library (DeskUI) providing draggable, resizable, focusabl
 - Works with Blazor Server, WebAssembly, and Hybrid
 
 ## Demo
-![Démo](https://github.com/user-attachments/assets/7ecaa10e-845f-4ab3-8c03-98e40571f253)
+![Animation](https://github.com/user-attachments/assets/fea86a9f-8f4d-4357-a314-c31daa652f27)
 
 ## Projects
 - **DeskUI** core RCL providing the full windowing system  
