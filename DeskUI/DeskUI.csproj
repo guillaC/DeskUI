@@ -7,10 +7,11 @@
     <ScopedCssEnabled>true</ScopedCssEnabled>
     <GenerateScopedCss>true</GenerateScopedCss>
     <PackageId>DeskUI</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <PackageReleaseNotes>
-      - Added Overlayed parameter to support modal overlays
-      - Renamed methods for improved API consistency
+      - Added custom CSS theme support
+      - Added WinCE theme
+      - General UI/UX improvements and code cleanup
     </PackageReleaseNotes>
     <Authors>GuillaC</Authors>
     <Description>OS-like multi-window system for Blazor</Description>
