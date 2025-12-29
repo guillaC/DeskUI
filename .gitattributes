@@ -2,10 +2,13 @@
 
 # Compter les fichiers .razor comme du C#
 *.razor linguist-language=C#
+
+# Compter les fichiers .razor.css comme du CSS
 *.razor.css linguist-language=CSS
 
-# Ignorer les CSS globaux dans les stats (RCL, wwwroot, etc.)
-*.css linguist-vendored
+# Ignorer uniquement les CSS globaux dans wwwroot
+wwwroot/*.css linguist-vendored
+wwwroot/**/*.css linguist-vendored
 
 # Ignorer les fichiers générés par Blazor
 wwwroot/_framework/* linguist-vendored
