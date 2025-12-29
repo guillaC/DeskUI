@@ -4,6 +4,12 @@
 *.razor linguist-language=C#
 *.razor.css linguist-language=CSS
 
-# Les fichiers générés par Blazor (framework côté client) ne doivent pas biaiser les stats
+# Ignorer les CSS globaux dans les stats (RCL, wwwroot, etc.)
+*.css linguist-vendored
+
+# Ignorer les fichiers gÃ©nÃ©rÃ©s par Blazor
 wwwroot/_framework/* linguist-vendored
 wwwroot/_content/* linguist-vendored
+
+# Ignorer les fichiers gÃ©nÃ©rÃ©s par le compilateur
+*.g.cs linguist-generated
