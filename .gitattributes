@@ -3,8 +3,8 @@
 # Compter les fichiers .razor comme du C#
 *.razor linguist-language=C#
 
-# Compter les fichiers .razor.css comme du CSS
-*.razor.css linguist-language=CSS
+# Compter les fichiers .razor.css comme du C#
+*.razor.css linguist-language=C#
 
 # Ignorer uniquement les CSS globaux dans wwwroot
 wwwroot/*.css linguist-vendored
