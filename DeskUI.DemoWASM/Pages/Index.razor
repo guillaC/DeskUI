@@ -7,17 +7,4 @@
 @inject WindowManager WindowManager
 
 <WindowHost Theme="@Themes.ClassicLight" />
-
-<div class="desktop-icons">
-    <button class="desktop-icon" @onclick="OpenFirstWindow">
-        <span>First</span>
-    </button>
-
-    <button class="desktop-icon" @onclick="OpenSecondWindow">
-        <span>Second (Modal)</span>
-    </button>
-
-    <button class="desktop-icon" @onclick="OpenUIManagerWindow">
-        <span>UI Manager</span>
-    </button>
-</div>
+<Desktop />

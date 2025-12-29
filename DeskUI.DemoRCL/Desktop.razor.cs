@@ -1,34 +1,34 @@
 ﻿using DeskUI.Services;
 
-namespace DeskUI.DemoServer.Pages
+namespace DeskUI.DemoRCL
 {
-    public partial class Index
+    public partial class Desktop
     {
         async Task OpenFirstWindow()
         {
             await WindowManager.OpenWindowAsync("FirstComponent", builder =>
-             {
-                 builder.OpenComponent<DemoRCL.FirstForm>(0);
-                 builder.CloseComponent();
-             }, width: 240, height: 320);
+            {
+                builder.OpenComponent<FirstForm>(0);
+                builder.CloseComponent();
+            }, width: 240, height: 335);
         }
 
         async Task OpenSecondWindow()
         {
             await WindowManager.OpenWindowAsync("SecondComponent (Modal)", builder =>
             {
-                builder.OpenComponent<DemoRCL.SecondForm>(0);
+                builder.OpenComponent<SecondForm>(0);
                 builder.CloseComponent();
-            }, width: 550, height: 250, allowClose: false, overlayed:true);
+            }, width: 550, height: 250, allowClose: false, overlayed: true);
         }
 
         async Task OpenUIManagerWindow()
         {
             await WindowManager.OpenWindowAsync("UIManager", builder =>
             {
-                builder.OpenComponent<DemoRCL.UIManagerForm>(0);
+                builder.OpenComponent<UIManagerForm>(0);
                 builder.CloseComponent();
-            }, width: 800, height: 400);
+            }, width: 850, height: 400);
         }
     }
 }

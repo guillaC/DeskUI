@@ -1,0 +1,19 @@
+﻿@using DeskUI.Services
+@inject WindowManager WindowManager
+
+<div class="desktop-icons">
+    <button class="desktop-icon" @onclick="OpenFirstWindow">
+        <div class="icon">🌄</div>
+        <span>First</span>
+    </button>
+
+    <button class="desktop-icon" @onclick="OpenSecondWindow">
+        <div class="icon">📜</div>
+        <span>Second (overlayed)</span>
+    </button>
+
+    <button class="desktop-icon" @onclick="OpenUIManagerWindow">
+        <div class="icon">⚙️</div>
+        <span>UI Manager</span>
+    </button>
+</div>

@@ -18,4 +18,8 @@
     <ProjectReference Include="..\DeskUI\DeskUI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Desktop.css" />
+  </ItemGroup>
+
 </Project>
