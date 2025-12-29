@@ -1,0 +1,53 @@
+﻿.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--win-bg);
+    color: var(--win-color);
+    font-size: 14px;
+}
+
+    .table th,
+    .table td {
+        padding: 0.4rem 0.6rem;
+        border-bottom: 1px solid var(--win-border-color);
+    }
+
+    .table thead {
+        background: var(--header-bg);
+        color: var(--header-color);
+    }
+
+    .table tbody tr:hover {
+        background: rgba(0,0,0,0.05);
+    }
+
+.row-active {
+    background: rgba(0,150,0,0.15);
+}
+
+.center {
+    text-align: center;
+}
+
+.btn {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--win-border-color);
+    background: var(--header-bg);
+    color: var(--header-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .btn:hover {
+        background: rgba(0,0,0,0.1);
+    }
+
+.btn-danger {
+    background: #b33;
+    color: #fff;
+    border-color: #922;
+}
+
+    .btn-danger:hover {
+        background: #a22;
+    }

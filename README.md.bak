@@ -57,7 +57,7 @@ async Task OpenSecondWindow()
     {
         builder.OpenComponent<SecondForm>(0);
         builder.CloseComponent();
-    }, width: 550, height: 250, allowClose: false, overlayed: true);
+    }, width: 550, height: 250, allowClose: false, overlayed:true);
 }
 ```
 

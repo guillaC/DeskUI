@@ -1,0 +1,176 @@
+﻿.classic-light {
+    /* Window */
+    --win-bg: #ffffff;
+    --win-bg-gradient: none;
+    --win-opacity: 1;
+    --win-border-color: #ccc;
+    --win-border-width: 1px;
+    --win-border-style: solid;
+    --win-radius: 6px;
+    --win-color: #333;
+    --win-shadow: none;
+    --win-font-family: 'Inter', sans-serif;
+    --win-font-size: 14px;
+    --win-font-weight: 400;
+    --win-backdrop-filter: none;
+    /* Header */
+    --header-bg: #e0e0e0;
+    --header-bg-gradient: none;
+    --header-color: #222;
+    --header-font-size: 13px;
+    --header-font-weight: bold;
+    --header-letter-spacing: 0.5px;
+    --header-height: 35px;
+    --header-padding-x: 10px;
+    --header-padding-y: 4px;
+    --header-border-color: #ccc;
+    --header-border-width: 1px;
+    --header-border-style: solid;
+    --header-shadow: none;
+    /* Close Button */
+    --close-size: 16px;
+    --close-color: #666;
+    --close-hover: #000;
+    --close-active: #333;
+    --close-bg: transparent;
+    --close-bg-hover: transparent;
+    --close-bg-active: transparent;
+    --close-radius: 4px;
+    --close-padding: 4px;
+    /* Content */
+    --content-padding-x: 10px;
+    --content-padding-y: 0;
+    --content-bg: transparent;
+    --content-color: inherit;
+    --content-font-size: inherit;
+    --content-line-height: 1.4;
+    --content-scrollbar-width: 8px;
+    --content-scrollbar-track: rgba(0,0,0,0.05);
+    --content-scrollbar-thumb: rgba(0,0,0,0.2);
+    --content-scrollbar-thumb-hover: rgba(0,0,0,0.3);
+    /* Resizer */
+    --resizer-size: 15px;
+    --resizer-bg: rgba(200, 200, 200, 0.7);
+    --resizer-hover-bg: rgba(150, 150, 150, 0.7);
+    --resizer-active-bg: rgba(120, 120, 120, 0.7);
+    --resizer-corner-radius: 0;
+    --resizer-opacity: 1;
+}
+
+.classic-dark {
+    /* Window */
+    --win-bg: #262626;
+    --win-bg-gradient: none;
+    --win-opacity: 1;
+    --win-border-color: #4a4a4a;
+    --win-border-width: 1px;
+    --win-border-style: solid;
+    --win-radius: 6px;
+    --win-color: #e0e0e0;
+    --win-shadow: none;
+    --win-font-family: 'Inter', sans-serif;
+    --win-font-size: 14px;
+    --win-font-weight: 400;
+    --win-backdrop-filter: none;
+    /* Header */
+    --header-bg: #333;
+    --header-bg-gradient: none;
+    --header-color: #f0f0f0;
+    --header-font-size: 13px;
+    --header-font-weight: bold;
+    --header-letter-spacing: 0.5px;
+    --header-height: 35px;
+    --header-padding-x: 10px;
+    --header-padding-y: 4px;
+    --header-border-color: #555;
+    --header-border-width: 1px;
+    --header-border-style: solid;
+    --header-shadow: none;
+    /* Close Button */
+    --close-size: 16px;
+    --close-color: #bbb;
+    --close-hover: #fff;
+    --close-active: #ddd;
+    --close-bg: transparent;
+    --close-bg-hover: transparent;
+    --close-bg-active: transparent;
+    --close-radius: 4px;
+    --close-padding: 4px;
+    /* Content */
+    --content-padding-x: 10px;
+    --content-padding-y: 0;
+    --content-bg: transparent;
+    --content-color: inherit;
+    --content-font-size: inherit;
+    --content-line-height: 1.4;
+    --content-scrollbar-width: 8px;
+    --content-scrollbar-track: rgba(255,255,255,0.05);
+    --content-scrollbar-thumb: rgba(255,255,255,0.2);
+    --content-scrollbar-thumb-hover: rgba(255,255,255,0.3);
+    /* Resizer */
+    --resizer-size: 15px;
+    --resizer-bg: rgba(200, 200, 200, 0.7);
+    --resizer-hover-bg: rgba(150, 150, 150, 0.7);
+    --resizer-active-bg: rgba(120, 120, 120, 0.7);
+    --resizer-corner-radius: 0;
+    --resizer-opacity: 1;
+}
+
+.windows-ce {
+    /* Window */
+    --win-bg: #dcdcdc;
+    --win-bg-gradient: none;
+    --win-opacity: 1;
+    --win-border-color: #000;
+    --win-border-width: 2px;
+    --win-border-style: solid;
+    --win-radius: 0;
+    --win-color: #000;
+    --win-shadow: none;
+    --win-font-family: 'Inter', sans-serif;
+    --win-font-size: 12px;
+    --win-font-weight: 400;
+    --win-backdrop-filter: none;
+    /* Header */
+    --header-bg: #000080;
+    --header-bg-gradient: none;
+    --header-color: #fff;
+    --header-font-size: 12px;
+    --header-font-weight: bold;
+    --header-letter-spacing: 0;
+    --header-height: 31px;
+    --header-padding-x: 6px;
+    --header-padding-y: 2px;
+    --header-border-color: #000;
+    --header-border-width: 0;
+    --header-border-style: none;
+    --header-shadow: none;
+    /* Close Button */
+    --close-size: 12px;
+    --close-color: #000;
+    --close-hover: #000;
+    --close-active: #000;
+    --close-bg: #dcdcdc;
+    --close-bg-hover: #e8e8e8;
+    --close-bg-active: #bcbcbc;
+    --close-radius: 0;
+    --close-padding: 2px;
+    /* Content */
+    --content-padding-x: 6px;
+    --content-padding-y: 4px;
+    --content-bg: #dcdcdc;
+    --content-color: #000;
+    --content-font-size: 12px;
+    --content-line-height: 1.2;
+    --content-scrollbar-width: 12px;
+    --content-scrollbar-track: #e0e0e0;
+    --content-scrollbar-thumb: #c0c0c0;
+    --content-scrollbar-thumb-hover: #a0a0a0;
+    /* Resizer */
+    --resizer-size: 12px;
+    --resizer-bg: #b0b0b0;
+    --resizer-hover-bg: #9c9c9c;
+    --resizer-active-bg: #7a7a7a;
+    --resizer-corner-radius: 0;
+    --resizer-opacity: 1;
+}

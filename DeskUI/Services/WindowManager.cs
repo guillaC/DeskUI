@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System.Threading;
 
 namespace DeskUI.Services
 {
@@ -11,7 +10,6 @@ namespace DeskUI.Services
         public event Action? OnThemeChanged;
         private int _zCounter = 1000;
         public List<WindowInstance> Windows { get; } = new();
-        public bool DarkModeColours { get; private set; } = false;
         public DragContext? Dragged { get; private set; }
         public ResizeContext? Resizing { get; private set; }
         public WindowInstance? GetWindow(Guid id) => Windows.FirstOrDefault(w => w.Id == id);
@@ -109,12 +107,6 @@ namespace DeskUI.Services
                 if (width is not null) win.Width = width.Value;
                 if (OnChange != null) await OnChange.Invoke();
             }
-        }
-
-        public void SetDarkMode(bool state)
-        {
-            DarkModeColours = state;
-            OnThemeChanged?.Invoke();
         }
     }
 

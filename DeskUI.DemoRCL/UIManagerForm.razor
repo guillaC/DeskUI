@@ -1,9 +1,9 @@
 @using DeskUI.Services
 @inject WindowManager WindowManager
 
-<h3>UIManager</h3>
+<h1>UIManager</h1>
 
-<table class="table table-sm table-hover table-bordered table-rounded align-middle @(WindowManager.DarkModeColours ? "table-dark" : "table-light")">
+<table class="table">
     <thead>
         <tr>
             <th>Title</th>
@@ -21,21 +21,15 @@
 
             @foreach (var window in WindowManager.Windows)
             {
-                <tr class="@(window.ZIndex == maxZ ? "table-success" : "")">
+                <tr class="@(window.ZIndex == maxZ ? "row-active" : "")">
                     <td>@window.Title</td>
                     <td>@window.Id</td>
                     <td>@window.Left,@window.Top</td>
                     <td>@window.Width x @window.Height</td>
                     <td>@window.ZIndex</td>
-                    <td class="text-center">
-                        <button class="btn btn-sm btn-primary me-2"
-                                @onclick="() => WindowManager.BringToFrontAsync(window.Id)">
-                            Bring to front
-                        </button>
-                        <button class="btn btn-sm btn-danger"
-                                @onclick="() => WindowManager.Close(window.Id)">
-                            Close
-                        </button>
+                    <td class="center">
+                        <button class="btn" @onclick="() => WindowManager.BringToFrontAsync(window.Id)">Front</button>
+                        <button class="btn btn-danger" @onclick="() => WindowManager.Close(window.Id)">Close</button>
                     </td>
                 </tr>
             }

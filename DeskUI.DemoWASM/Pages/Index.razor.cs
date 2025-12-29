@@ -2,11 +2,6 @@
 {
     public partial class Index
     {
-        private void ToggleTheme()
-        {
-            WindowManager.SetDarkMode(!WindowManager.DarkModeColours);
-        }
-
         async Task OpenFirstWindow()
         {
             await WindowManager.OpenWindowAsync("FirstComponent", builder =>

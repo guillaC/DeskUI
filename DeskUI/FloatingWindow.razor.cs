@@ -6,6 +6,7 @@ namespace DeskUI
     public partial class FloatingWindow : IDisposable
     {
         [Parameter] public string Title { get; set; } = "Window";
+        [Parameter] public string Theme { get; set; } = "classic-light";
         [Parameter] public RenderFragment? ChildContent { get; set; }
         [Parameter] public Guid Id { get; set; }
         [Parameter] public int ZIndex { get; set; }
@@ -53,7 +54,7 @@ namespace DeskUI
 
         private async Task CloseAsync()
         {
-            await OnCloseRequested.InvokeAsync();
+            if (AllowClose) await OnCloseRequested.InvokeAsync();
         }
     }
 }

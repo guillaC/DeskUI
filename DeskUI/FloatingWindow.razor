@@ -10,12 +10,11 @@
 }
 
 <div id="@WindowId"
-     class="window @(WindowManager.DarkModeColours ? "theme-dark" : "theme-light")"
+     class="window @Theme"
      style="@Style"
      @onmousedown="BringToFrontAsync">
     <div class="window-header" @onmousedown="StartDrag">
         <div class="window-title">@Title</div>
-
         @if (AllowClose)
         {
             <button class="window-close" @onclick="CloseAsync">&times;</button>

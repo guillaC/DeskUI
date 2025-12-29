@@ -3,7 +3,6 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-
     <RazorClassLibrary>true</RazorClassLibrary>
     <ScopedCssEnabled>true</ScopedCssEnabled>
     <GenerateScopedCss>true</GenerateScopedCss>

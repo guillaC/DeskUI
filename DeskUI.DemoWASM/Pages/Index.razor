@@ -1,18 +1,12 @@
 ﻿@page "/"
 
 @using DeskUI
+@using DeskUI.Common
 @using DeskUI.Services
 
 @inject WindowManager WindowManager
 
-<WindowHost />
-
-<div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" checked="@WindowManager.DarkModeColours" @onchange="ToggleTheme" />
-    <span class="form-check-label">
-        @(WindowManager.DarkModeColours ? "Dark" : "Light")
-    </span>
-</div>
+<WindowHost Theme="@Themes.ClassicLight" />
 
 <div class="desktop-icons">
     <button class="desktop-icon" @onclick="OpenFirstWindow">
