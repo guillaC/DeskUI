@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 **OS-like multi window system for Blazor applications.**  
-A reusable Razor Class Library (DeskUI) providing draggable, resizable, focusable windows — just like a real desktop environment, with zero external dependencies.
+A reusable Razor Class Library (DeskUI) providing draggable, resizable, focusable windows, just like a real desktop environment, with zero external dependencies.
 
 ## Features
 - Draggable, resizable, focusable multi-window system
