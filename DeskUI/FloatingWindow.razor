@@ -10,14 +10,16 @@
 }
 
 <div id="@WindowId"
-     class="window @Theme"
+     class="window @Theme @(Docked ? "docked" : "")"
      style="@Style"
      @onmousedown="BringToFrontAsync">
     <div class="window-header" @onmousedown="StartDrag">
         <div class="window-title">@Title</div>
         @if (AllowClose)
         {
-            <button class="window-close" @onclick="CloseAsync">&times;</button>
+            <button class="window-close" @onclick="@(Docked ? (EventCallback<MouseEventArgs>)default : EventCallback.Factory.Create<MouseEventArgs>(this, CloseAsync))">
+                &times;
+            </button>
         }
     </div>
 
@@ -25,5 +27,7 @@
         @ChildContent
     </div>
 
-    <div class="window-resizer" @onmousedown="StartResize"></div>
+    <div class="window-resizer"
+         @onmousedown="@(Docked ? (EventCallback<MouseEventArgs>)default : EventCallback.Factory.Create<MouseEventArgs>(this, StartResize))">
+    </div>
 </div>

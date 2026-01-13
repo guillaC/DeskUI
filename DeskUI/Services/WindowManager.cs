@@ -8,7 +8,6 @@ namespace DeskUI.Services
         public record ResizeContext(WindowInstance Window, int StartX, int StartY, int InitialWidth, int InitialHeight);
         public event Func<Task>? OnChange;
         public event Action? OnThemeChanged;
-        private int _zCounter = 1000;
         public List<WindowInstance> Windows { get; } = new();
         public DragContext? Dragged { get; private set; }
         public ResizeContext? Resizing { get; private set; }
@@ -17,10 +16,18 @@ namespace DeskUI.Services
         public bool IsResizing => Resizing is not null;
         public void StopDrag() => Dragged = null;
         public void StopResize() => Resizing = null;
+        private int _zCounter = 1000;
 
-        public async Task OpenWindowAsync(string title, RenderFragment content, int width = 600, int height = 400, int top = 100, int left = 100, bool allowClose = true, bool overlayed = false)
+        public async Task OpenWindowAsync<T>(string title, int width = 600, int height = 400, int top = 100, int left = 100, bool allowClose = true, bool overlayed = false) where T : IComponent
         {
+            RenderFragment content = builder =>
+            {
+                builder.OpenComponent<T>(0);
+                builder.CloseComponent();
+            };
+
             var id = Guid.NewGuid();
+
             Windows.Add(new WindowInstance
             {
                 Id = id,
@@ -121,6 +128,6 @@ namespace DeskUI.Services
         public int Left { get; set; }
         public int Height { get; set; }
         public bool AllowClose { get; set; }
-        public bool Overlayed {  get; set; }
+        public bool Overlayed { get; set; }
     }
 }

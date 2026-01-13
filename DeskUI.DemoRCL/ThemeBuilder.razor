@@ -1,0 +1,34 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JS
+
+<style>
+    .preview-theme {
+        @foreach (var kv in cssVars)
+        {
+            @($"{kv.Key}: {kv.Value};")
+        }
+    }
+</style>
+
+<h1>Theme Builder</h1>
+
+<FloatingWindow Title="Preview"
+                Theme="preview-theme"
+                Id="@Guid.NewGuid()"
+                AllowClose="true"
+                Docked="true">
+    <div>
+        <p>Hello World !</p>
+    </div>
+</FloatingWindow>
+
+<h2>CSS Variables</h2>
+
+@foreach (var kv in cssVars.Keys.ToList())
+{
+    <div class="prop-row">
+        <label>@kv</label>
+        <input value="@cssVars[kv]"
+               @oninput="(e => UpdateVar(kv, e.Value?.ToString()))" />
+    </div>
+}

@@ -17,6 +17,7 @@ namespace DeskUI
         [Parameter] public EventCallback OnCloseRequested { get; set; }
         [Parameter] public bool AllowClose { get; set; }
         [Parameter] public bool Overlayed { get; set; }
+        [Parameter] public bool Docked { get; set; }
 
         public string WindowId => $"window-{Id}";
         private string Style => $"position:fixed; top:{Top}px; left:{Left}px; width:{Width}px; {(Height > 0 ? "height:" + Height + "px;" : "")} z-index:{ZIndex};";
