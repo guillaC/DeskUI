@@ -3,11 +3,47 @@
 
 <style>
     .preview-theme {
-        @foreach (var kv in cssVars)
+        @foreach (Var kv in cssVars)
         {
             @($"{kv.Key}: {kv.Value};")
         }
     }
+
+    .du-prop-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 6px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .du-prop-label {
+        width: 180px;
+        font-size: 13px;
+        color: #444;
+        user-select: none;
+    }
+
+    .du-prop-input {
+        flex: 1;
+        padding: 6px 10px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: #222;
+        font-size: 13px;
+        outline: none;
+        transition: border-color 120ms ease;
+    }
+
+        .du-prop-input:hover {
+            border-color: #999;
+        }
+
+        .du-prop-input:focus {
+            border-color: #4da3ff;
+        }
+
 </style>
 
 <h1>Theme Builder</h1>
@@ -24,11 +60,14 @@
 
 <h2>CSS Variables</h2>
 
-@foreach (var kv in cssVars.Keys.ToList())
+@foreach (var v in cssVars)
 {
-    <div class="prop-row">
-        <label>@kv</label>
-        <input value="@cssVars[kv]"
-               @oninput="(e => UpdateVar(kv, e.Value?.ToString()))" />
+    <div class="du-prop-row">
+        <label class="du-prop-label">@v.Key</label>
+
+        <input type="@v.InputType.ToString().ToLower()"
+               class="du-prop-input"
+               value="@v.Value"
+               @oninput="e => UpdateVar(v.Key, e.Value?.ToString())" />
     </div>
 }
