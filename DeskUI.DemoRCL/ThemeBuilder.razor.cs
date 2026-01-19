@@ -5,9 +5,31 @@ namespace DeskUI.DemoRCL
 {
     public partial class ThemeBuilder
     {
-        private record Var(string Key, string Value, InputType InputType)
+        private record Var
         {
-            public string Value { get; set; } = Value;
+            public string Key { get; init; }
+            public string RawValue { get; set; }
+            public InputType InputType { get; init; }
+
+            public double? Number { get; set; }
+            public string? Unit { get; set; }
+
+            public Var(string key, string rawValue, InputType inputType)
+            {
+                Key = key;
+                RawValue = rawValue;
+                InputType = inputType;
+
+                if (inputType == InputType.Number)
+                {
+                    var match = Regex.Match(rawValue, @"^\s*([0-9]*\.?[0-9]+)\s*([a-zA-Z%]+)\s*;?\s*$");
+                    if (match.Success)
+                    {
+                        Number = double.Parse(match.Groups[1].Value);
+                        Unit = match.Groups[2].Value;
+                    }
+                }
+            }
         }
 
         private readonly List<Var> cssVars = new();
@@ -41,9 +63,19 @@ namespace DeskUI.DemoRCL
 
         private void UpdateVar(string key, string? value)
         {
-            var v = cssVars.FirstOrDefault(x => x.Key == key);
-            if (v is not null) v.Value = value ?? "";
+            var v = cssVars.First(x => x.Key == key);
+
+            if (v.InputType == InputType.Number)
+            {
+                v.Number = double.TryParse(value, out var num) ? num : 0;
+                v.RawValue = $"{v.Number}{v.Unit}";
+            }
+            else
+            {
+                v.RawValue = value ?? "";
+            }
         }
+
 
         private static bool IsColor(string value)
         {

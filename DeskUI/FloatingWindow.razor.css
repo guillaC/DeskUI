@@ -23,7 +23,6 @@
     pointer-events: auto;
     display: flex;
     flex-direction: column;
-    backdrop-filter: var(--win-backdrop-filter);
 }
 
     .window * {

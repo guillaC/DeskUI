@@ -12,7 +12,6 @@
     --win-font-family: 'Inter', sans-serif;
     --win-font-size: 14px;
     --win-font-weight: 400;
-    --win-backdrop-filter: none;
     /* Header */
     --header-bg: #e0e0e0;
     --header-bg-gradient: none;
@@ -71,7 +70,6 @@
     --win-font-family: 'Inter', sans-serif;
     --win-font-size: 14px;
     --win-font-weight: 400;
-    --win-backdrop-filter: none;
     /* Header */
     --header-bg: #333;
     --header-bg-gradient: none;
@@ -130,7 +128,6 @@
     --win-font-family: 'Inter', sans-serif;
     --win-font-size: 12px;
     --win-font-weight: 400;
-    --win-backdrop-filter: none;
     /* Header */
     --header-bg: #000080;
     --header-bg-gradient: none;

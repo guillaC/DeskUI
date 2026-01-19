@@ -3,10 +3,19 @@
 
 <style>
     .preview-theme {
-        @foreach (Var kv in cssVars)
+        @foreach (Var
+                kv in cssVars)
         {
-            @($"{kv.Key}: {kv.Value};")
+            @($"{kv.Key}: {kv.RawValue};")
         }
+    }
+
+    /* disposition */
+    .du-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 24px;
+        margin-top: 12px;
     }
 
     .du-prop-row {
@@ -24,6 +33,7 @@
         user-select: none;
     }
 
+    /* input */
     .du-prop-input {
         flex: 1;
         padding: 6px 10px;
@@ -44,6 +54,31 @@
             border-color: #4da3ff;
         }
 
+    /* badge input */
+    .du-input-unit {
+        position: relative;
+        flex: 1; /* indispensable */
+        display: flex; /* pour que l’input prenne toute la largeur */
+    }
+
+        .du-input-unit .du-prop-input {
+            padding-right: 48px; /* espace pour le badge */
+        }
+
+    .du-unit {
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #e5e5e5; /* gris clair visible */
+        color: #444;
+        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 4px;
+        pointer-events: none;
+        border: 1px solid #ccc;
+        z-index: 2; /* pour être au-dessus de l’input */
+    }
 </style>
 
 <h1>Theme Builder</h1>
@@ -60,14 +95,28 @@
 
 <h2>CSS Variables</h2>
 
-@foreach (var v in cssVars)
-{
-    <div class="du-prop-row">
-        <label class="du-prop-label">@v.Key</label>
-
-        <input type="@v.InputType.ToString().ToLower()"
-               class="du-prop-input"
-               value="@v.Value"
-               @oninput="e => UpdateVar(v.Key, e.Value?.ToString())" />
-    </div>
-}
+<div class="du-grid">
+    @foreach (var v in cssVars)
+    {
+        <div class="du-prop-row">
+            <label class="du-prop-label">@v.Key</label>
+            @if (v.InputType == InputType.Number)
+            {
+                <div class="du-input-unit">
+                    <input type="number"
+                           class="du-prop-input"
+                           value="@v.Number"
+                           @oninput="e => UpdateVar(v.Key, e.Value?.ToString())" />
+                    <span class="du-unit">@v.Unit</span>
+                </div>
+            }
+            else
+            {
+                <input type="@v.InputType.ToString().ToLower()"
+                       class="du-prop-input"
+                       value="@v.RawValue"
+                       @oninput="e => UpdateVar(v.Key, e.Value?.ToString())" />
+            }
+        </div>
+    }
+</div>
