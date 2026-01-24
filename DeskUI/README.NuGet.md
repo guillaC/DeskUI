@@ -7,7 +7,7 @@ Draggable. Resizable. Themed. Simple.
 ```razor
 @using DeskUI
 ```
-- Register the WindowManager service in Program.cs
+- Register the WindowManager service in `Program.cs`
 ```csharp
 builder.Services.AddScoped<WindowManager>();
 ```
