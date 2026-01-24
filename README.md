@@ -27,6 +27,10 @@ A Razor Class Library for draggable, resizable, focusable windows, just like a r
 ```razor
 @using DeskUI
 ```
+- Register the WindowManager service in Program.cs
+```csharp
+builder.Services.AddScoped<WindowManager>();
+```
 - Add the window host in your main page (e.g. `Index.razor`) ClassicLight is the default theme, but you can specify another one:
 ```html
 <WindowHost Theme="@Themes.ClassicLight" />
@@ -39,26 +43,15 @@ A Razor Class Library for draggable, resizable, focusable windows, just like a r
 ```html
 <script src="_content/DeskUI/drag.js"/>
 ```
+- Inject the WindowManager where you need to open windows
+```razor
+@inject WindowManager WindowManager
+```
 
 ## Usage
 ```csharp
-async Task OpenFirstWindow()
-{
-    await WindowManager.OpenWindowAsync("FirstComponent", builder =>
-    {
-        builder.OpenComponent<FirstForm>(0);
-        builder.CloseComponent();
-    }, width: 240, height: 320);
-}
-
-async Task OpenSecondWindow()
-{
-    await WindowManager.OpenWindowAsync("SecondComponent (Modal)", builder =>
-    {
-        builder.OpenComponent<SecondForm>(0);
-        builder.CloseComponent();
-    }, width: 550, height: 250, allowClose: false, overlayed: true);
-}
+Task OpenFirstWindow() => WindowManager.OpenWindowAsync<FirstForm>("FirstComponent", 240, 335);
+Task OpenSecondWindow() => WindowManager.OpenWindowAsync<SecondForm>("SecondComponent (Modal)", 550, 250, allowClose: false, overlayed: true);
 ```
 
 ## Theme Support

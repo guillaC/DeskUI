@@ -7,11 +7,10 @@
     <ScopedCssEnabled>true</ScopedCssEnabled>
     <GenerateScopedCss>true</GenerateScopedCss>
     <PackageId>DeskUI</PackageId>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
     <PackageReleaseNotes>
-      - Added custom CSS theme support
-      - Added WinCE theme
       - General UI/UX improvements and code cleanup
+      - Added generic overload for OpenWindowAsync enabling direct component instantiation without manual RenderTreeBuilder
     </PackageReleaseNotes>
     <Authors>GuillaC</Authors>
     <Description>OS-like multi-window system for Blazor</Description>

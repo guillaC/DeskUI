@@ -1,5 +1,4 @@
-﻿using DeskUI.Common;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace DeskUI

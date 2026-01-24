@@ -76,7 +76,6 @@ namespace DeskUI.DemoRCL
             }
         }
 
-
         private static bool IsColor(string value)
         {
             if (string.IsNullOrWhiteSpace(value)) return false;
