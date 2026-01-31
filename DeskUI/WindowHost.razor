@@ -7,17 +7,8 @@
     @foreach (var window in WindowManager.Windows)
     {
         <FloatingWindow @key="window.Id"
-                        Id="@window.Id"
-                        Title="@window.Title"
+                        Instance="@window"
                         Theme="@Theme"
-                        ChildContent="@window.Content"
-                        ZIndex="@window.ZIndex"
-                        Top="@window.Top"
-                        Left="@window.Left"
-                        Width="@window.Width"
-                        Height="@window.Height"
-                        OnCloseRequested="@(() => WindowManager.Close(window.Id))"
-                        AllowClose="@window.AllowClose"
-                        Overlayed="@window.Overlayed" />
+                        OnCloseRequested="@(() => WindowManager.Close(window.Id))" />
     }
 </div>

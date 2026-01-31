@@ -4,9 +4,9 @@
 @inject WindowManager WindowManager
 @inject IJSRuntime JSRuntime
 
-@if (Overlayed)
+@if (Instance.Overlayed)
 {
-    <div class="overlay" style="z-index:@(ZIndex - 1);"></div>
+    <div class="overlay" style="z-index:@(Instance.ZIndex - 1);"></div>
 }
 
 <div id="@WindowId"
@@ -14,8 +14,8 @@
      style="@Style"
      @onmousedown="BringToFrontAsync">
     <div class="window-header" @onmousedown="StartDrag">
-        <div class="window-title">@Title</div>
-        @if (AllowClose)
+        <div class="window-title">@Instance.Title</div>
+        @if (Instance.AllowClose)
         {
             <button class="window-close" @onclick="@(Docked ? (EventCallback<MouseEventArgs>)default : EventCallback.Factory.Create<MouseEventArgs>(this, CloseAsync))">
                 &times;
@@ -24,7 +24,7 @@
     </div>
 
     <div class="window-content">
-        @ChildContent
+        @Instance.Content
     </div>
 
     <div class="window-resizer"

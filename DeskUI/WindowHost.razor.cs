@@ -11,7 +11,7 @@ namespace DeskUI
 
         protected override void OnInitialized()
         {
-            WindowManager.OnChange += async () => await InvokeAsync(StateHasChanged);
+            WindowManager.OnChange += () => InvokeAsync(StateHasChanged);
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)

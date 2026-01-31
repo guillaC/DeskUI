@@ -18,8 +18,18 @@ namespace DeskUI.Services
         public void StopResize() => Resizing = null;
         private int _zCounter = 1000;
 
-        public async Task OpenWindowAsync<T>(string title, int width = 600, int height = 400, int top = 100, int left = 100, bool allowClose = true, bool overlayed = false) where T : IComponent
+        private WindowInstance? FindExistingSingleInstance<T>() where T : IComponent => Windows.FirstOrDefault(w => w.SingleInstance && w.ComponentType == typeof(T));
+
+        public async Task OpenWindowAsync<T>(string title, int width = 600, int height = 400, int top = 100, int left = 100, 
+                                             bool allowClose = true, bool overlayed = false, bool singleInstance = false) where T : IComponent
         {
+            var existing = FindExistingSingleInstance<T>();
+            if (existing is not null)
+            {
+                await BringToFrontAsync(existing.Id);
+                return;
+            }
+
             RenderFragment content = builder =>
             {
                 builder.OpenComponent<T>(0);
@@ -33,13 +43,15 @@ namespace DeskUI.Services
                 Id = id,
                 Title = title,
                 Content = content,
+                ComponentType = typeof(T),
                 Width = width,
                 Height = height,
                 Top = top,
                 Left = left,
                 ZIndex = ++_zCounter,
                 AllowClose = allowClose,
-                Overlayed = overlayed
+                Overlayed = overlayed,
+                SingleInstance = singleInstance
             });
 
             if (OnChange != null) await OnChange.Invoke();
@@ -97,7 +109,6 @@ namespace DeskUI.Services
             if (OnChange is not null) await OnChange.Invoke();
         }
 
-
         public void Close(Guid id)
         {
             Windows.RemoveAll(w => w.Id == id);
@@ -122,6 +133,7 @@ namespace DeskUI.Services
         public Guid Id { get; set; }
         public string Title { get; set; } = "";
         public RenderFragment? Content { get; set; }
+        public Type? ComponentType { get; set; }
         public int ZIndex { get; set; }
         public int Width { get; set; }
         public int Top { get; set; }
@@ -129,5 +141,6 @@ namespace DeskUI.Services
         public int Height { get; set; }
         public bool AllowClose { get; set; }
         public bool Overlayed { get; set; }
+        public bool SingleInstance { get; set; }
     }
 }
