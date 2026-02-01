@@ -27,7 +27,7 @@ A Razor Class Library for draggable, resizable, focusable windows, just like a r
 ```razor
 @using DeskUI
 ```
-- Register the WindowManager service in Program.cs
+- Register the WindowManager service in `Program.cs`
 ```csharp
 builder.Services.AddScoped<WindowManager>();
 ```
@@ -50,7 +50,7 @@ builder.Services.AddScoped<WindowManager>();
 
 ## Usage
 ```csharp
-Task OpenFirstWindow() => WindowManager.OpenWindowAsync<FirstForm>("FirstComponent", 240, 335);
+Task OpenFirstWindow() => WindowManager.OpenWindowAsync<FirstForm>("FirstComponent", 240, 335, singleInstance: true);
 Task OpenSecondWindow() => WindowManager.OpenWindowAsync<SecondForm>("SecondComponent (Modal)", 550, 250, allowClose: false, overlayed: true);
 ```
 
