@@ -13,17 +13,21 @@
      class="window @Theme @(Docked ? "docked" : "")"
      style="@Style"
      @onmousedown="BringToFrontAsync">
-    <div class="window-header" @onmousedown="StartDrag">
-        <div class="window-title">@Instance.Title</div>
-        @if (Instance.AllowClose)
-        {
-            <button class="window-close" @onclick="@(Docked ? (EventCallback<MouseEventArgs>)default : EventCallback.Factory.Create<MouseEventArgs>(this, CloseAsync))">
-                &times;
-            </button>
-        }
-    </div>
 
-    <div class="window-content">
+    @if (Instance.TitleBarVisible)
+    {
+        <div class="window-header" @onmousedown="StartDrag">
+            <div class="window-title">@Instance.Title</div>
+            @if (Instance.AllowClose)
+            {
+                <button class="window-close" @onclick="@(Docked ? (EventCallback<MouseEventArgs>)default : EventCallback.Factory.Create<MouseEventArgs>(this, CloseAsync))">
+                    &times;
+                </button>
+            }
+        </div>
+    }
+
+    <div class="window-content" @onmousedown="StartDragFromContent">
         @Instance.Content
     </div>
 

@@ -21,7 +21,8 @@ namespace DeskUI.Services
         private WindowInstance? FindExistingSingleInstance<T>() where T : IComponent => Windows.FirstOrDefault(w => w.SingleInstance && w.ComponentType == typeof(T));
 
         public async Task OpenWindowAsync<T>(string title, int width = 600, int height = 400, int top = 100, int left = 100, 
-                                             bool allowClose = true, bool overlayed = false, bool singleInstance = false) where T : IComponent
+                                             bool allowClose = true, bool overlayed = false, bool singleInstance = false, 
+                                             bool titleBarVisible = true, bool allowContentDrag = false) where T : IComponent
         {
             var existing = FindExistingSingleInstance<T>();
             if (existing is not null)
@@ -51,7 +52,9 @@ namespace DeskUI.Services
                 ZIndex = ++_zCounter,
                 AllowClose = allowClose,
                 Overlayed = overlayed,
-                SingleInstance = singleInstance
+                SingleInstance = singleInstance,
+                TitleBarVisible = titleBarVisible,
+                AllowContentDrag = allowContentDrag
             });
 
             if (OnChange != null) await OnChange.Invoke();
@@ -142,5 +145,7 @@ namespace DeskUI.Services
         public bool AllowClose { get; set; }
         public bool Overlayed { get; set; }
         public bool SingleInstance { get; set; }
+        public bool TitleBarVisible { get; set; }
+        public bool AllowContentDrag { get; set; }
     }
 }

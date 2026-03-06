@@ -15,20 +15,17 @@ namespace DeskUI
         public string WindowId => $"window-{Instance.Id}";
         private string Style => $"position:fixed; top:{Instance.Top}px; left:{Instance.Left}px; width:{Instance.Width}px; {(Instance.Height > 0 ? "height:" + Instance.Height + "px;" : "")} z-index:{Instance.ZIndex};";
 
-        private void StartResize(MouseEventArgs e)
+        private void StartResize(MouseEventArgs e) => WindowManager.StartResize(Instance.Id, (int)e.ClientX, (int)e.ClientY);
+        private void StartDrag(MouseEventArgs e) => WindowManager.StartDrag(Instance.Id, (int)e.ClientX, (int)e.ClientY);
+        
+        private void StartDragFromContent(MouseEventArgs e)
         {
-            WindowManager.StartResize(Instance.Id, (int)e.ClientX, (int)e.ClientY);
-        }
-
-        private void StartDrag(MouseEventArgs e)
-        {
-            WindowManager.StartDrag(Instance.Id, (int)e.ClientX, (int)e.ClientY);
+            if (Instance.AllowContentDrag) StartDrag(e);
         }
 
         private async Task BringToFrontAsync(MouseEventArgs _)
         {
             await WindowManager.BringToFrontAsync(Instance.Id);
-            await InvokeAsync(StateHasChanged);
         }
 
         private async Task CloseAsync()
