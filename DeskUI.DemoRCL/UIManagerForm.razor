@@ -30,7 +30,7 @@
                             <td>@window.ZIndex</td>
                             <td class="center">
                                 <button class="btn" @onclick="() => WindowManager.BringToFrontAsync(window.Id)">Front</button>
-                                <button class="btn btn-danger" @onclick="() => WindowManager.Close(window.Id)">Close</button>
+                                <button class="btn btn-danger" @onclick="() => WindowManager.CloseAsync(window.Id)">Close</button>
                             </td>
                         </tr>
                     }

@@ -1,4 +1,4 @@
-﻿﻿@using DeskUI.Services
+﻿@using DeskUI.Services
 @using Microsoft.JSInterop
 @inject WindowManager WindowManager
 @inject IJSRuntime JSRuntime
@@ -9,6 +9,6 @@
         <FloatingWindow @key="window.Id"
                         Instance="@window"
                         Theme="@Theme"
-                        OnCloseRequested="@(() => WindowManager.Close(window.Id))" />
+                        OnCloseRequested="@(() => WindowManager.CloseAsync(window.Id))" />
     }
 </div>

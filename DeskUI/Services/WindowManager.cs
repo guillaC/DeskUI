@@ -17,7 +17,8 @@ namespace DeskUI.Services
         public bool IsResizing => Resizing is not null;
         public void StopDrag() => Dragged = null;
         public void StopResize() => Resizing = null;
-        private int _zCounter = 1000;
+        private const int InitialZIndex = 1000;
+        private int _zCounter = InitialZIndex;
 
         private WindowInstance? FindExistingSingleInstance<T>() where T : IComponent => Windows.FirstOrDefault(w => w.SingleInstance && w.ComponentType == typeof(T));
 
@@ -70,7 +71,7 @@ namespace DeskUI.Services
 
             Windows.Add(win);
             NotifyWindowChanged(WindowAction.Opened, win);
-            if (OnChange != null) await OnChange.Invoke();
+            if (OnChange is not null) await OnChange.Invoke();
         }
 
         public void StartDrag(Guid id, int startX, int startY)
@@ -91,16 +92,16 @@ namespace DeskUI.Services
             Dragged.Window.Left = Dragged.InitialLeft + dx;
             Dragged.Window.Top = Dragged.InitialTop + dy;
 
-            if (OnChange != null) await OnChange.Invoke();
+            if (OnChange is not null) await OnChange.Invoke();
         }
 
         public async Task BringToFrontAsync(Guid id)
         {
             var win = GetWindow(id);
-            if (win != null)
+            if (win is not null)
             {
                 win.ZIndex = ++_zCounter;
-                if (OnChange != null) await OnChange.Invoke();
+                if (OnChange is not null) await OnChange.Invoke();
             }
         }
 
@@ -125,15 +126,15 @@ namespace DeskUI.Services
             if (OnChange is not null) await OnChange.Invoke();
         }
 
-        public void Close(Guid id)
+        public async Task CloseAsync(Guid id)
         {
             var win = GetWindow(id);
-            if (win != null)
+            if (win is not null)
             {
                 Windows.RemoveAll(w => w.Id == id);
                 NotifyWindowChanged(WindowAction.Closed, win);
+                if (OnChange is not null) await OnChange.Invoke();
             }
-            OnChange?.Invoke();
         }
 
         public async Task UpdatePositionAsync(Guid id, int top, int left, int? width = null)
@@ -144,7 +145,7 @@ namespace DeskUI.Services
                 win.Top = top;
                 win.Left = left;
                 if (width is not null) win.Width = width.Value;
-                if (OnChange != null) await OnChange.Invoke();
+                if (OnChange is not null) await OnChange.Invoke();
             }
         }
     }

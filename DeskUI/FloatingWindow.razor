@@ -32,6 +32,6 @@
     </div>
 
     <div class="window-resizer"
-         @onmousedown="@(Docked ? (EventCallback<MouseEventArgs>)default : EventCallback.Factory.Create<MouseEventArgs>(this, StartResize))">
+         @onmousedown="@StartResize">
     </div>
 </div>
