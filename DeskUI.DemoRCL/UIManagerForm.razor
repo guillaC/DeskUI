@@ -1,46 +1,50 @@
 @using DeskUI.Services
 @inject WindowManager WindowManager
 
-<h1>UIManager</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>ID</th>
-            <th>Position</th>
-            <th>Size</th>
-            <th>ZIndex</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (WindowManager.Windows.Any())
-        {
-            var maxZ = WindowManager.Windows.Max(w => w.ZIndex);
-
-            @foreach (var window in WindowManager.Windows)
-            {
-                <tr class="@(window.ZIndex == maxZ ? "row-active" : "")">
-                    <td>@window.Title</td>
-                    <td>@window.Id</td>
-                    <td>@window.Left,@window.Top</td>
-                    <td>@window.Width x @window.Height</td>
-                    <td>@window.ZIndex</td>
-                    <td class="center">
-                        <button class="btn" @onclick="() => WindowManager.BringToFrontAsync(window.Id)">Front</button>
-                        <button class="btn btn-danger" @onclick="() => WindowManager.Close(window.Id)">Close</button>
-                    </td>
+<div style="display: flex; gap: 2rem; align-items: flex-start;">
+    <div style="flex: 1;">
+        <h1>UIManager</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>ID</th>
+                    <th>Position</th>
+                    <th>Size</th>
+                    <th>ZIndex</th>
+                    <th>Action</th>
                 </tr>
-            }
-        }
-    </tbody>
-</table>
+            </thead>
+            <tbody>
+                @if (WindowManager.Windows.Any())
+                {
+                    var maxZ = WindowManager.Windows.Max(w => w.ZIndex);
 
-@code {
-    protected override void OnInitialized()
-    {
-        WindowManager.OnChange += () => InvokeAsync(StateHasChanged);
-        WindowManager.OnThemeChanged += () => InvokeAsync(StateHasChanged);
-    }
-}
+                    @foreach (var window in WindowManager.Windows)
+                    {
+                        <tr class="@(window.ZIndex == maxZ ? "row-active" : "")">
+                            <td>@window.Title</td>
+                            <td>@window.Id</td>
+                            <td>@window.Left,@window.Top</td>
+                            <td>@window.Width x @window.Height</td>
+                            <td>@window.ZIndex</td>
+                            <td class="center">
+                                <button class="btn" @onclick="() => WindowManager.BringToFrontAsync(window.Id)">Front</button>
+                                <button class="btn btn-danger" @onclick="() => WindowManager.Close(window.Id)">Close</button>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div style="width: 320px; min-width: 220px;">
+        <h3>Events</h3>
+        <ul class="events-list">
+            @foreach (var notification in notifications)
+            {
+                <li>@notification</li>
+            }
+        </ul>
+    </div>
+</div>

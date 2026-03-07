@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System;
+using Microsoft.AspNetCore.Components;
 
 namespace DeskUI.Services
 {
@@ -7,8 +8,8 @@ namespace DeskUI.Services
         public record DragContext(WindowInstance Window, int StartX, int StartY, int InitialLeft, int InitialTop);
         public record ResizeContext(WindowInstance Window, int StartX, int StartY, int InitialWidth, int InitialHeight);
         public event Func<Task>? OnChange;
-        public event Action? OnThemeChanged;
-        public List<WindowInstance> Windows { get; } = new();
+        public event EventHandler<WindowChangedEventArgs>? WindowChanged;
+        public List<WindowInstance> Windows { get; } = [];
         public DragContext? Dragged { get; private set; }
         public ResizeContext? Resizing { get; private set; }
         public WindowInstance? GetWindow(Guid id) => Windows.FirstOrDefault(w => w.Id == id);
@@ -19,6 +20,16 @@ namespace DeskUI.Services
         private int _zCounter = 1000;
 
         private WindowInstance? FindExistingSingleInstance<T>() where T : IComponent => Windows.FirstOrDefault(w => w.SingleInstance && w.ComponentType == typeof(T));
+
+        private void NotifyWindowChanged(WindowAction action, WindowInstance win)
+        {
+            WindowChanged?.Invoke(this, new WindowChangedEventArgs
+            {
+                Timestamp = DateTime.Now,
+                Action = action,
+                Window = win
+            });
+        }
 
         public async Task OpenWindowAsync<T>(string title, int width = 600, int height = 400, int top = 100, int left = 100, 
                                              bool allowClose = true, bool overlayed = false, bool singleInstance = false, 
@@ -31,15 +42,15 @@ namespace DeskUI.Services
                 return;
             }
 
-            RenderFragment content = builder =>
+            static void content(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder builder)
             {
                 builder.OpenComponent<T>(0);
                 builder.CloseComponent();
-            };
+            }
 
             var id = Guid.NewGuid();
 
-            Windows.Add(new WindowInstance
+            var win = new WindowInstance
             {
                 Id = id,
                 Title = title,
@@ -55,8 +66,10 @@ namespace DeskUI.Services
                 SingleInstance = singleInstance,
                 TitleBarVisible = titleBarVisible,
                 AllowContentDrag = allowContentDrag
-            });
+            };
 
+            Windows.Add(win);
+            NotifyWindowChanged(WindowAction.Opened, win);
             if (OnChange != null) await OnChange.Invoke();
         }
 
@@ -114,7 +127,12 @@ namespace DeskUI.Services
 
         public void Close(Guid id)
         {
-            Windows.RemoveAll(w => w.Id == id);
+            var win = GetWindow(id);
+            if (win != null)
+            {
+                Windows.RemoveAll(w => w.Id == id);
+                NotifyWindowChanged(WindowAction.Closed, win);
+            }
             OnChange?.Invoke();
         }
 
@@ -147,5 +165,18 @@ namespace DeskUI.Services
         public bool SingleInstance { get; set; }
         public bool TitleBarVisible { get; set; }
         public bool AllowContentDrag { get; set; }
+    }
+
+    public class WindowChangedEventArgs : EventArgs
+    {
+        public DateTime Timestamp { get; set; }
+        public WindowAction Action { get; set; }
+        public WindowInstance Window { get; set; } = null!;
+    }
+
+    public enum WindowAction
+    {
+        Opened,
+        Closed
     }
 }
