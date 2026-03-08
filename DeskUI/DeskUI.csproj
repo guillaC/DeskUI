@@ -7,10 +7,10 @@
     <ScopedCssEnabled>true</ScopedCssEnabled>
     <GenerateScopedCss>true</GenerateScopedCss>
     <PackageId>DeskUI</PackageId>
-    <Version>1.3.0</Version>
+    <Version>1.4.0</Version>
     <PackageReleaseNotes>
-      - General UI/UX improvements and code cleanup
-      - Added generic overload for OpenWindowAsync enabling direct component instantiation without manual RenderTreeBuilder
+      - Added WindowChanged event with detailed event args
+      - Added window options: titleBarVisible and allowContentDrag
     </PackageReleaseNotes>
     <Authors>GuillaC</Authors>
     <Description>OS-like multi-window system for Blazor</Description>
@@ -25,7 +25,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.3" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using DeskUI.Common;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace DeskUI
@@ -7,7 +8,7 @@ namespace DeskUI
     {
         private DotNetObjectReference<WindowHost>? _dotNetRef;
 
-        [Parameter] public string Theme { get; set; } = "classic-light";
+        [Parameter] public string Theme { get; set; } = Themes.ClassicLight;
 
         protected override void OnInitialized()
         {
