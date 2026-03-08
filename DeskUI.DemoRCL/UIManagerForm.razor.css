@@ -1,4 +1,23 @@
-﻿.table {
+﻿.ui-layout {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.ui-left {
+    flex: 1;
+}
+
+.ui-right {
+    width: 320px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.table {
     width: 100%;
     border-collapse: collapse;
     background: var(--win-bg);
@@ -50,4 +69,27 @@
 
     .btn-danger:hover {
         background: #a22;
+    }
+
+.events-container {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid var(--win-border-color);
+    border-radius: 4px;
+    background: var(--win-bg);
+    display: flex;
+    flex-direction: column;
+}
+
+.event-item {
+    padding: 0.25rem 0.2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+    color: var(--win-color);
+    flex-shrink: 0;
+}
+
+    .event-item:hover {
+        background: rgba(0,0,0,0.05);
     }
