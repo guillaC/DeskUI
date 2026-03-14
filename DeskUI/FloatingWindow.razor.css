@@ -98,11 +98,12 @@
     font-size: var(--content-font-size);
     line-height: var(--content-line-height);
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
     .window-content::-webkit-scrollbar {
-        width: var(--content-scrollbar-width);
+        width: var(--content-scrollbar);
+        height: var(--content-scrollbar);
     }
 
     .window-content::-webkit-scrollbar-track {

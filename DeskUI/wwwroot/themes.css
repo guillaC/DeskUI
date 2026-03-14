@@ -19,7 +19,7 @@
     --header-font-size: 13px;
     --header-font-weight: bold;
     --header-letter-spacing: 0.5px;
-    --header-height: 35px;
+    --header-height: 33px;
     --header-padding-x: 10px;
     --header-padding-y: 4px;
     --header-border-color: #ccc;
@@ -42,8 +42,8 @@
     --content-bg: transparent;
     --content-color: inherit;
     --content-font-size: inherit;
-    --content-line-height: 1.4;
-    --content-scrollbar-width: 8px;
+    --content-line-height: 1;
+    --content-scrollbar: 8px;
     --content-scrollbar-track: rgba(0,0,0,0.05);
     --content-scrollbar-thumb: rgba(0,0,0,0.2);
     --content-scrollbar-thumb-hover: rgba(0,0,0,0.3);
@@ -77,7 +77,7 @@
     --header-font-size: 13px;
     --header-font-weight: bold;
     --header-letter-spacing: 0.5px;
-    --header-height: 35px;
+    --header-height: 33px;
     --header-padding-x: 10px;
     --header-padding-y: 4px;
     --header-border-color: #555;
@@ -100,8 +100,8 @@
     --content-bg: transparent;
     --content-color: inherit;
     --content-font-size: inherit;
-    --content-line-height: 1.4;
-    --content-scrollbar-width: 8px;
+    --content-line-height: 1;
+    --content-scrollbar: 8px;
     --content-scrollbar-track: rgba(255,255,255,0.05);
     --content-scrollbar-thumb: rgba(255,255,255,0.2);
     --content-scrollbar-thumb-hover: rgba(255,255,255,0.3);
@@ -158,8 +158,8 @@
     --content-bg: #dcdcdc;
     --content-color: #000;
     --content-font-size: 12px;
-    --content-line-height: 1.2;
-    --content-scrollbar-width: 12px;
+    --content-line-height: 1;
+    --content-scrollbar: 12px;
     --content-scrollbar-track: #e0e0e0;
     --content-scrollbar-thumb: #c0c0c0;
     --content-scrollbar-thumb-hover: #a0a0a0;
