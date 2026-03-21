@@ -4,6 +4,6 @@
     {
         public const string ClassicLight = "classic-light";
         public const string ClassicDark = "classic-dark";
-        public const string WindowsCE = "windows-ce";
+        public const string GlassBrown = "glass-brown";
     }
 }

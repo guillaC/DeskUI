@@ -61,7 +61,7 @@ You can choose one of the built-in themes or define your own.
 Available built-in themes:
 - Themes.ClassicLight
 - Themes.ClassicDark
-- Themes.WindowsCE
+- Themes.GlassBrown
 ### Create your own theme
 You can override any of the theme variables defined in `themes.css`.
 ```css

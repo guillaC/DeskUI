@@ -10,10 +10,8 @@
     position: fixed;
     border-radius: var(--win-radius);
     border: var(--win-border-width) var(--win-border-style) var(--win-border-color);
-    background: var(--win-bg);
-    background-image: var(--win-bg-gradient);
+    background: var(--win-bg-gradient), var(--win-bg);
     opacity: var(--win-opacity);
-    box-shadow: var(--win-shadow);
     color: var(--win-color);
     font-family: var(--win-font-family);
     font-size: var(--win-font-size);
@@ -46,8 +44,7 @@
         }
 
 .window-header {
-    background: var(--header-bg);
-    background-image: var(--header-bg-gradient);
+    background: var(--header-bg-gradient), var(--header-backdrop-bg);
     color: var(--header-color);
     height: var(--header-height);
     line-height: var(--header-height);
@@ -58,8 +55,19 @@
     flex-shrink: 0;
     cursor: move;
     border-bottom: var(--header-border-width) var(--header-border-style) var(--header-border-color);
-    box-shadow: var(--header-shadow);
+    box-shadow: var(--header-inner-shadow), var(--header-shadow-outer);
+    backdrop-filter: blur(var(--header-backdrop-blur)) saturate(var(--header-backdrop-saturation));
+    position: relative;
+    overflow: hidden;
 }
+
+    .window-header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--header-glossy-gradient);
+        pointer-events: none;
+    }
 
 .window-title {
     font-size: var(--header-font-size);
@@ -92,6 +100,7 @@
     }
 
 .window-content {
+    flex: 1;
     padding: var(--content-padding-y) var(--content-padding-x);
     background: var(--content-bg);
     color: var(--content-color);
@@ -99,6 +108,8 @@
     line-height: var(--content-line-height);
     overflow-y: auto;
     overflow-x: auto;
+    background: var(--content-backdrop-bg);
+    backdrop-filter: blur(var(--content-backdrop-blur)) saturate(var(--content-backdrop-saturation));
 }
 
     .window-content::-webkit-scrollbar {
