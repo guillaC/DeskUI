@@ -5,9 +5,8 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #052f3a 0%, #0a4a57 100%);
+    background: linear-gradient(to bottom, #1a1a1a 0%, #141414 50%, #0f0f0f 100%);
 }
-
 
 .desktop-icons {
     display: flex;
