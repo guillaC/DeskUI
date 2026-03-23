@@ -4,13 +4,19 @@
 <div class="desktop-icons">
     <button class="desktop-icon" @onclick="OpenFirstWindow">
         <div class="icon">🌄</div>
-        <span>First</span>
+        <span>Sample Window 1</span>
     </button>
 
-    <button class="desktop-icon" @onclick="OpenSecondWindow">
+    <button class="desktop-icon" @onclick="() => OpenSecondWindow()">
         <div class="icon">📜</div>
-        <span>Second (overlayed)</span>
+        <span>Sample Window 2</span>
     </button>
+
+    <button class="desktop-icon" @onclick="() => OpenSecondWindow(isOverLayed: true)">
+        <div class="icon">📜</div>
+        <span>Sample Window 2 (Overlay)</span>
+    </button>
+
 
     <button class="desktop-icon" @onclick="OpenUIManagerWindow">
         <div class="icon">⚙️</div>
