@@ -10,11 +10,11 @@ A Razor Class Library for draggable, resizable, focusable windows, just like a r
 ## Features
 - Draggable, resizable, focusable multi-window system
 - Modal & overlay support with zero external dependencies
-- Built-in theming (light, dark, Windows CE) + full CSS variable customization
-- Works with Blazor Server, WebAssembly, and Hybrid
+- Built-in theming (light, dark, GlassBrown) + full CSS variable customization
+- Works with Blazor Server and WebAssembly (Blazor Hybrid support has not been tested yet).
 
 ## Demo
-![demo](https://github.com/user-attachments/assets/ab36802b-7475-4d1c-aabb-e98e3ff782a6)
+<img src="https://github.com/user-attachments/assets/ab36802b-7475-4d1c-aabb-e98e3ff782a6" width="650">
 
 ## Projects
 - **DeskUI** core RCL providing the full windowing system  
