@@ -1,8 +1,7 @@
 # DeskUI  
-![Blazor](https://img.shields.io/badge/blazor-purple?logo=blazor&logoColor=white)
-![NuGet](https://img.shields.io/nuget/vpre/DeskUI?label=nuget&logo=nuget)  
-![Stars](https://img.shields.io/github/stars/guillaC/BlazorDesk?style=flat)
-![License](https://img.shields.io/badge/license-MIT-green)
+![Blazor](https://img.shields.io/badge/blazor-purple?logo=blazor&logoColor=white) ![NuGet](https://img.shields.io/nuget/vpre/DeskUI?label=nuget&logo=nuget) ![Stars](https://img.shields.io/github/stars/guillaC/BlazorDesk?style=flat) ![License](https://img.shields.io/badge/license-MIT-green)
+![Last Deployment](https://img.shields.io/github/actions/workflow/status/guillaC/DeskUI/azure-static-web-apps-salmon-mud-0c5967910.yml?label=deployment)
+![Azure Static Web Apps](https://img.shields.io/badge/Azure%20Static%20Web%20Apps-Deployed-0078D4?logo=microsoft-azure&logoColor=white)
 
 **OS-like multi window system for Blazor applications.**  
 A Razor Class Library for draggable, resizable, focusable windows, just like a real desktop environment, without any external dependencies.
@@ -10,11 +9,11 @@ A Razor Class Library for draggable, resizable, focusable windows, just like a r
 ## Features
 - Draggable, resizable, focusable multi-window system
 - Modal & overlay support with zero external dependencies
-- Built-in theming (light, dark, Windows CE) + full CSS variable customization
-- Works with Blazor Server, WebAssembly, and Hybrid
+- Built-in theming (light, dark, GlassBrown) + full CSS variable customization
+- Works with Blazor Server and WebAssembly (Blazor Hybrid support has not been tested yet).
 
 ## Demo
-![demo](https://github.com/user-attachments/assets/ab36802b-7475-4d1c-aabb-e98e3ff782a6)
+<img src="https://github.com/user-attachments/assets/ab36802b-7475-4d1c-aabb-e98e3ff782a6" width="650">
 
 ## Projects
 - **DeskUI** core RCL providing the full windowing system  

@@ -5,13 +5,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DeskUI.DemoWASM</title>
-    <base href="./" />
+    <base href="/" />
 
+    <link rel="preload" id="webassembly" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="DeskUI.DemoWASM.styles.css" />
-    <link rel="stylesheet" href="_content/DeskUI/DeskUI.bundle.scp.css" />
-    <link rel="stylesheet" href="_content/DeskUI.DemoRCL/Desktop.css" />
+    <link rel="stylesheet" href="_content/DeskUI.DemoRCL/desktop.css" />
     <link rel="stylesheet" href="_content/DeskUI/themes.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- Importmap vide (normal en mode legacy) -->
+    <script type="importmap"></script>
 </head>
 
 <body>
@@ -29,8 +33,11 @@
         <span class="dismiss">🗙</span>
     </div>
 
-    <script src="_framework/blazor.webassembly.js"></script>
+    <!-- Boot Blazor .NET 10 en mode legacy + fingerprint -->
+    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
+
     <script src="_content/DeskUI/drag.js"></script>
     <script src="_content/DeskUI.DemoRCL/themebuilder.js"></script>
 </body>
+
 </html>

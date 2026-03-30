@@ -7,10 +7,11 @@
     <ScopedCssEnabled>true</ScopedCssEnabled>
     <GenerateScopedCss>true</GenerateScopedCss>
     <PackageId>DeskUI</PackageId>
-    <Version>1.4.0</Version>
+    <Version>1.5.0</Version>
     <PackageReleaseNotes>
-      - Added WindowChanged event with detailed event args
-      - Added window options: titleBarVisible and allowContentDrag
+      - Added new "Glass" theme with translucent UI
+      - Added new CSS variables for theme customization (colors, opacity, blur)
+      - Added backdrop-filter support for window backgrounds
     </PackageReleaseNotes>
     <Authors>GuillaC</Authors>
     <Description>OS-like multi-window system for Blazor</Description>
@@ -21,7 +22,9 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageTags>rcl;ui;ux;window-manager;multi-window;blazor;blazor-server;modular-ui;component-library</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Copyright>© 2025 GuillaC. Licensed under MIT.</Copyright>
+    <Copyright>© 2025-2026 GuillaC. Licensed under MIT.</Copyright>
+    <GenerateCompressedStaticAssets>false</GenerateCompressedStaticAssets>
+    <DisableWebConfigCompression>true</DisableWebConfigCompression>
   </PropertyGroup>
 
   <ItemGroup>
