@@ -44,6 +44,7 @@ jobs:
           action: "upload"
           app_location: "build/wwwroot"
           skip_app_build: true
+          app_build_command: "echo force-purge"
 
   close_pull_request:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
