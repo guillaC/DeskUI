@@ -1,6 +1,6 @@
 # DeskUI  
 ![Blazor](https://img.shields.io/badge/blazor-purple?logo=blazor&logoColor=white) ![NuGet](https://img.shields.io/nuget/vpre/DeskUI?label=nuget&logo=nuget) ![Stars](https://img.shields.io/github/stars/guillaC/BlazorDesk?style=flat) ![License](https://img.shields.io/badge/license-MIT-green)
-![Last Deployment](https://img.shields.io/github/actions/workflow/status/guillaC/DeskUI/azure-static-web-apps-wonderful-coast-0bc3fab10.6.yml?label=deployment)
+![Last Deployment](https://img.shields.io/github/actions/workflow/status/guillaC/DeskUI/azure-static-web-apps-salmon-mud-0c5967910.yml?label=deployment)
 ![Azure Static Web Apps](https://img.shields.io/badge/Azure%20Static%20Web%20Apps-Deployed-0078D4?logo=microsoft-azure&logoColor=white)
 
 **OS-like multi window system for Blazor applications.**  
