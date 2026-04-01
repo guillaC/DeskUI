@@ -20,7 +20,7 @@ namespace DeskUI
             if (firstRender)
             {
                 _dotNetRef = DotNetObjectReference.Create(this);
-                await JSRuntime.InvokeVoidAsync("trackMouseMove", _dotNetRef);
+                await JSRuntime.InvokeVoidAsync("trackPointerMove", _dotNetRef);
             }
         }
 

@@ -14,10 +14,7 @@ namespace DeskUI.DemoRCL
 
         private void OnWindowChanged(object? sender, WindowChangedEventArgs e)
         {
-            var msg = $"[{e.Timestamp:HH:mm:ss}] {e.Action} - {e.Window.Title} ({e.Window?.ComponentType?.Name})";
-            notifications.Insert(0, msg);
-            if (notifications.Count > 10) notifications.RemoveAt(notifications.Count - 1);
-            InvokeAsync(StateHasChanged);
+            notifications.Add($"[{e.Timestamp:HH:mm:ss}] {e.Action} - {e.Window.Title} ({e.Window?.ComponentType?.Name})");
         }
 
         public void Dispose()

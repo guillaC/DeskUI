@@ -2,49 +2,65 @@
 @inject WindowManager WindowManager
 
 <div class="ui-layout">
-    <div class="ui-left">
-        <h1>UIManager</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>ID</th>
-                    <th>Position</th>
-                    <th>Size</th>
-                    <th>ZIndex</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (WindowManager.Windows.Any())
-                {
-                    var maxZ = WindowManager.Windows.Max(w => w.ZIndex);
 
-                    @foreach (var window in WindowManager.Windows)
-                    {
-                        <tr class="@(window.ZIndex == maxZ ? "row-active" : "")">
-                            <td>@window.Title</td>
-                            <td>@window.Id</td>
-                            <td>@window.Left,@window.Top</td>
-                            <td>@window.Width x @window.Height</td>
-                            <td>@window.ZIndex</td>
-                            <td class="center">
-                                <button class="btn" @onclick="() => WindowManager.BringToFrontAsync(window.Id)">Front</button>
-                                <button class="btn btn-danger" @onclick="() => WindowManager.CloseAsync(window.Id)">Close</button>
-                            </td>
+    <div class="ui-left">
+        <h1 class="panel-title">UI Manager</h1>
+
+        <div class="panel">
+            <div class="table-scroll">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>ID</th>
+                            <th>Position</th>
+                            <th>Size</th>
+                            <th>Z‑Index</th>
+                            <th class="center">Actions</th>
                         </tr>
-                    }
-                }
-            </tbody>
-        </table>
+                    </thead>
+
+                    <tbody>
+                        @if (WindowManager.Windows.Any())
+                        {
+                            var maxZ = WindowManager.Windows.Max(w => w.ZIndex);
+
+                            @foreach (var window in WindowManager.Windows)
+                            {
+                                <tr class="@(window.ZIndex == maxZ ? "row-active" : "")">
+                                    <td>@window.Title</td>
+                                    <td class="mono">@window.Id</td>
+                                    <td>@window.Left , @window.Top</td>
+                                    <td>@window.Width × @window.Height</td>
+                                    <td>@window.ZIndex</td>
+
+                                    <td class="center">
+                                        <button class="btn" @onclick="() => WindowManager.BringToFrontAsync(window.Id)">
+                                            Front
+                                        </button>
+
+                                        <button class="btn" @onclick="() => WindowManager.CloseAsync(window.Id)">
+                                            Close
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <div class="ui-right">
-        <div class="events-container">
+        <h1 class="panel-title">Events</h1>
+
+        <div class="panel events-container table-scroll">
             @foreach (var notification in notifications)
             {
                 <div class="event-item">@notification</div>
             }
         </div>
     </div>
+
 </div>
