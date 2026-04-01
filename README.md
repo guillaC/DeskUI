@@ -13,7 +13,13 @@ A Razor Class Library for draggable, resizable, focusable windows, just like a r
 - Works with Blazor Server and WebAssembly (Blazor Hybrid support has not been tested yet).
 
 ## Demo
-<img src="https://github.com/user-attachments/assets/ab36802b-7475-4d1c-aabb-e98e3ff782a6" width="650">
+<p align="center">
+<img src="https://github.com/user-attachments/assets/ab36802b-7475-4d1c-aabb-e98e3ff782a6" width="650"> <br>
+<a href="https://salmon-mud-0c5967910.6.azurestaticapps.net/" target="_blank">
+    🔗 Live Demo — DeskUI
+  </a>
+</p>
+
 
 ## Projects
 - **DeskUI** core RCL providing the full windowing system  
