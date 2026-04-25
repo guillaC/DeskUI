@@ -41,7 +41,6 @@ jobs:
           action: "upload"
           app_location: "DeskUI.DemoWASM"
           output_location: "build/wwwroot"
-          app_build_command: "echo purge-$(date +%s)"
 
   close_pull_request:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
