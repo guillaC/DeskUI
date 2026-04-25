@@ -39,8 +39,8 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_SALMON_MUD_0C5967910 }}
           action: "upload"
-          app_location: "DeskUI.DemoWASM"
-          output_location: "build/wwwroot"
+          app_location: "build/wwwroot"
+          output_location: ""
           skip_app_build: true
 
   close_pull_request:
