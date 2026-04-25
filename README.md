@@ -1,7 +1,5 @@
 # DeskUI  
 ![Blazor](https://img.shields.io/badge/blazor-purple?logo=blazor&logoColor=white) ![NuGet](https://img.shields.io/nuget/vpre/DeskUI?label=nuget&logo=nuget) ![Stars](https://img.shields.io/github/stars/guillaC/BlazorDesk?style=flat) ![License](https://img.shields.io/badge/license-MIT-green)
-![Last Deployment](https://img.shields.io/github/actions/workflow/status/guillaC/DeskUI/azure-static-web-apps-salmon-mud-0c5967910.yml?label=deployment)
-![Azure Static Web Apps](https://img.shields.io/badge/Azure%20Static%20Web%20Apps-Deployed-0078D4?logo=microsoft-azure&logoColor=white)
 
 **OS-like multi window system for Blazor applications.**  
 A Razor Class Library for draggable, resizable, focusable windows, just like a real desktop environment, without any external dependencies.
@@ -15,9 +13,6 @@ A Razor Class Library for draggable, resizable, focusable windows, just like a r
 ## Demo
 <p align="center">
 <img src="https://github.com/user-attachments/assets/ab36802b-7475-4d1c-aabb-e98e3ff782a6" width="650"> <br>
-<a href="https://salmon-mud-0c5967910.6.azurestaticapps.net/" target="_blank">
-    🔗 Live Demo — DeskUI
-  </a>
 </p>
 
 ## Projects
