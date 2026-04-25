@@ -20,7 +20,6 @@ A Razor Class Library for draggable, resizable, focusable windows, just like a r
   </a>
 </p>
 
-
 ## Projects
 - **DeskUI** core RCL providing the full windowing system  
 - **DeskUI.DemoRCL** reusable demo RCL consumed by the demo apps  
